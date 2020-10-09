@@ -1,11 +1,14 @@
 import ReactDOM from "react-dom";
+import { Canvas } from "react-three-fiber";
 
 import "./styles.css";
 
 function App() {
   return (
     <>
-      <h1>Test</h1>
+      <Canvas concurrent shadowMap camera={{ position: [0, 0, 5] }}>
+        
+      </Canvas>
     </>
   );
 }

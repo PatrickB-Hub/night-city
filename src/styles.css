@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Play:400,700");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 25px;
+}
+
+body {
+  font-family: "Play", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #8b8b8b;
+  background-color: #0c0f13;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
