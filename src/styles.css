@@ -25,3 +25,41 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+.loading {
+  padding: 10px;
+  transform: translate3d(-50%, -50%, 0);
+  color: #8b8b8b;
+}
+
+.scrollContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(115, 115, 115, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.8);
+}
+
+@media screen and (min-width: 53em) {
+  body {
+    overflow: hidden;
+    font-size: 0.85rem;
+  }
+}
