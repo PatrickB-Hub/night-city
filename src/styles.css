@@ -41,6 +41,38 @@ body {
   overflow: auto;
 }
 
+
+div.nav-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateX(2.2em) rotate(90deg);
+  z-index: 9999;
+}
+
+div.nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+a.nav-item {
+  height: 10px;
+  width: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(115, 115, 115, 0.8);
+  margin: 0 4px;
+}
+
+a.nav-item:hover {
+  border: 1px solid rgba(100, 100, 100, 0.8);
+}
+
+a.nav-item.active {
+  background-color: rgba(115, 115, 115, 0.8);
+}
+
 ::-webkit-scrollbar {
   width: 0.4em;
 }
@@ -61,5 +93,9 @@ body {
   body {
     overflow: hidden;
     font-size: 0.85rem;
+  }
+
+  div.nav-container {
+    display: block;
   }
 }

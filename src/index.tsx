@@ -7,6 +7,7 @@ import "./styles.css";
 import Loader from "./components/Loader";
 import Startup from "./components/Startup";
 import ScrollContainer from "./components/Container/ScrollContainer";
+import Nav from "./components/Nav";
 
 import state from "./store";
 
@@ -26,6 +27,7 @@ function App() {
           scrollTop.current = newScrollTop;
         }}
       />
+      <Nav />
     </>
   );
 }
