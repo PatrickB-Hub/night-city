@@ -4,8 +4,11 @@ import { Canvas } from "react-three-fiber";
 
 import "./styles.css";
 
+import { ScrollTopContext } from "./context";
+
 import Loader from "./components/Loader";
 import Startup from "./components/Startup";
+import Scene from "./components/Scene";
 import ScrollContainer from "./components/Container/ScrollContainer";
 import Nav from "./components/Nav";
 
@@ -18,6 +21,9 @@ function App() {
     <>
       <Canvas concurrent shadowMap camera={{ position: [0, 0, 5] }}>
         <Suspense fallback={<Loader />}>
+          <ScrollTopContext.Provider value={scrollTop}>
+            <Scene />
+          </ScrollTopContext.Provider>
           <Startup />
         </Suspense>
         <ambientLight intensity={0.8} />
