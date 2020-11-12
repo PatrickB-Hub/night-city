@@ -12,12 +12,27 @@
   font-size: 25px;
 }
 
+::selection {
+  background: #fff700;
+  color: #000;
+}
+
 body {
   font-family: "Play", sans-serif;
   font-size: 0.6rem;
   font-weight: 400;
   color: #8b8b8b;
   background-color: #0c0f13;
+}
+
+a {
+  color: #545454;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #8b8b8b;
 }
 
 #root {
