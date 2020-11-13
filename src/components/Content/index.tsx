@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
+import Article from "./Article";
 import Plane from "../Plane";
 import { Container } from "../Container";
 
@@ -10,11 +11,13 @@ import state from "../../store";
 
 const Content: React.FC = () => {
   const hero = useTexture(state.hero.image);
+  const images = useTexture(state.articles.map(({ image }) => image));
   const { contentMaxWidth: width } = useContainer();
 
   useMemo(() => {
     hero.minFilter = THREE.LinearFilter;
-  }, [hero]);
+    images.forEach((texture) => (texture.minFilter = THREE.LinearFilter));
+  }, [images, hero]);
 
   return (
     <>
@@ -29,6 +32,10 @@ const Content: React.FC = () => {
           position={[-width / 35, 0, -0.01]}
         />
       </Container>
+
+      {state.articles.map((props, index) => (
+        <Article key={index} index={index} {...props} image={images[index]} />
+      ))}
     </>
   );
 };
