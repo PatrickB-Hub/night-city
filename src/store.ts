@@ -77,6 +77,9 @@ const state = {
       text: "The business sectors of Night City include manufacturing industries, international trade and commerce, information services, electronic technologies, security services, and so on."
     }
   ],
+  stripes: [
+    { offset: 6.1, color: "#181818", height: 22 }
+  ],
 };
 
 export default state;

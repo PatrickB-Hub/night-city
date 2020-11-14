@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
+import { MultilineText } from "./Text";
 import Article from "./Article";
 import Plane from "../Plane";
 import { Container } from "../Container";
@@ -10,9 +11,12 @@ import useContainer from "../../hooks/Container/useContainer";
 import state from "../../store";
 
 const Content: React.FC = () => {
+
   const hero = useTexture(state.hero.image);
   const images = useTexture(state.articles.map(({ image }) => image));
   const { contentMaxWidth: width } = useContainer();
+
+  const textComponentOffset = 6;
 
   useMemo(() => {
     hero.minFilter = THREE.LinearFilter;
@@ -33,9 +37,54 @@ const Content: React.FC = () => {
         />
       </Container>
 
+      {state.stripes.map(({ offset, color, height }, index) => (
+        <Container
+          name={`stripe-${index}`}
+          key={index}
+          factor={-1.5}
+          offset={offset}
+        >
+          <Plane
+            planeArgs={[50, height, 32, 32]}
+            shift={-4}
+            color={color}
+            rotation={[0, 0, Math.PI / 8]}
+            position={[0, 0, -0.1]}
+          />
+        </Container>
+      ))}
+
       {state.articles.map((props, index) => (
         <Article key={index} index={index} {...props} image={images[index]} />
       ))}
+
+      <Container
+        name="text-night_city"
+        factor={1.2}
+        offset={textComponentOffset}
+      >
+        <MultilineText
+          top
+          left
+          size={width * 0.15}
+          lineHeight={width / 4.5}
+          position={[-width / 3.5, 0, -0.01]}
+          color={state.colors.headings[0]}
+          text={"Night\nCity"}
+        />
+      </Container>
+
+      <Container name="text-2077" factor={1.25} offset={9.1}>
+        <MultilineText
+          top
+          left
+          size={width * 0.15}
+          lineHeight={width / 4.5}
+          position={[-width / 3.5, 0, -0.01]}
+          color={state.colors.headings[1]}
+          text={"2077"}
+        />
+      </Container>
     </>
   );
 };
