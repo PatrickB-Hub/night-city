@@ -6,15 +6,19 @@ import { MultilineText } from "./Text";
 import Article from "./Article";
 import Plane from "../Plane";
 import { Container } from "../Container";
+import Cross from "./Cross";
+import Lines from "./Lines";
+import Star from "./Star";
 
 import useContainer from "../../hooks/Container/useContainer";
 import state from "../../store";
 
 const Content: React.FC = () => {
-
   const hero = useTexture(state.hero.image);
   const images = useTexture(state.articles.map(({ image }) => image));
-  const { contentMaxWidth: width } = useContainer();
+  const {
+    contentMaxWidth: width,
+  } = useContainer();
 
   const textComponentOffset = 6;
 
@@ -36,6 +40,37 @@ const Content: React.FC = () => {
           position={[-width / 35, 0, -0.01]}
         />
       </Container>
+
+      {state.crosses.map(({ factor, offset, ...props }, index) => (
+        <Container
+          name={`cross-${index}`}
+          key={index}
+          factor={factor}
+          offset={offset}
+        >
+          <Cross {...props} />
+        </Container>
+      ))}
+      {state.lines.map(({ factor, offset, ...props }, index) => (
+        <Container
+          name={`line-${index}`}
+          key={index}
+          factor={factor}
+          offset={offset}
+        >
+          <Lines {...props} />
+        </Container>
+      ))}
+      {state.stars.map(({ factor, offset, ...props }, index) => (
+        <Container
+          name={`star-${index}`}
+          key={index}
+          factor={factor}
+          offset={offset}
+        >
+          <Star {...props} />
+        </Container>
+      ))}
 
       {state.stripes.map(({ offset, color, height }, index) => (
         <Container

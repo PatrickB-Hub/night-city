@@ -80,6 +80,18 @@ const state = {
   stripes: [
     { offset: 6.1, color: "#181818", height: 22 }
   ],
+  crosses: [
+    { factor: -0.25, offset: 0, speed: 7.5, color: "#141414", scale: [1, 1, 1], position: [6, 2.5, 0.1], },
+    { factor: -1.25, offset: 6, speed: 10, color: "#fcf435", scale: [.8, .8, 1], position: [6, -1.5, 0.1] }
+  ],
+  lines: [
+    { factor: -1.5, offset: 0, color: "#141414", scale: [0.17, 0.7, 1], position: [-4, 1.75, 0.1] },
+    { factor: -1.5, offset: 6, color: "#fcf435", scale: [0.12, 0.35, 1], position: [4, 1.75, 0.1] },
+    { factor: -1.2, offset: 6.25, color: "#fcf435", scale: [0.15, 0.5, 1], position: [-5, 2.75, 0.1] }
+  ],
+  stars: [
+    { factor: -0.75, offset: 10, speed: 7.5, posFactor: -0.15, color: "#03D7F2", scale: [0.25, 0.25, 1], position: [-8, -8, 0.1] }
+  ],
 };
 
 export default state;
