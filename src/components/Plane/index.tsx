@@ -4,6 +4,7 @@ import { ReactThreeFiber, useFrame } from "react-three-fiber";
 
 import { ScrollTopContext } from "../../context";
 import CustomMaterial from "./CustomMaterial";
+import "./CustomMaterial";
 import useContainer from "../../hooks/Container/useContainer";
 import state from "../../store";
 

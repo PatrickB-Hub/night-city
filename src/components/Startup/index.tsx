@@ -1,17 +1,16 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { useFrame, useThree } from "react-three-fiber";
+import { useThree, useFrame } from "react-three-fiber";
 
+import customMaterial from "../Plane/CustomMaterial";
+import Plane from "../Plane";
 import state from "../../store";
 
-import Plane from "../Plane";
-import CustomMaterial from "../Plane/CustomMaterial";
-
-const Startup = () => {
+function Startup() {
   const { size, camera } = useThree();
   const fov = useRef(state.fov);
   const planeRef = useRef<
-    THREE.Mesh<THREE.PlaneBufferGeometry, CustomMaterial>
+    THREE.Mesh<THREE.PlaneBufferGeometry, customMaterial>
   >();
   const prevHeight = useRef(size.height);
 
@@ -25,7 +24,6 @@ const Startup = () => {
         );
       const newFov = (newRadFov * 180) / Math.PI;
       (camera as THREE.PerspectiveCamera).fov = newFov;
-
       prevHeight.current = window.innerHeight;
       fov.current = newFov;
     };
@@ -53,6 +51,6 @@ const Startup = () => {
       scale={[100, 100, 1]}
     />
   );
-};
+}
 
 export default Startup;

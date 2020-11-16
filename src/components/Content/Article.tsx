@@ -43,21 +43,21 @@ const Article: React.FC<Props> = ({
   return (
     <Container name={`article-${index}`} factor={factor} offset={offset}>
       <group position={[left ? -alignRight : alignRight, 0, 0]}>
-        <Text
-          name="title"
-          left={left}
-          right={!left}
-          size={width * 0.05}
-          color={color}
-          top
-          position={[
-            ((left ? -width : width) * size) / 2,
-            (width * size) / aspect / 2 + 0.5,
-            -0.02,
-          ]}
-        >
-          {header}
-        </Text>
+          <Text
+            name="title"
+            left={left}
+            right={!left}
+            size={width * 0.05}
+            color={color}
+            top
+            position={[
+              ((left ? -width : width) * size) / 2,
+              (width * size) / aspect / 2 + 0.5,
+              -0.02,
+            ]}
+          >
+            {header}
+          </Text>
 
         <Plane
           name="image"

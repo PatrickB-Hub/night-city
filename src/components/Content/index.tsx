@@ -20,8 +20,6 @@ const Content: React.FC = () => {
     contentMaxWidth: width,
   } = useContainer();
 
-  const textComponentOffset = 6;
-
   useMemo(() => {
     hero.minFilter = THREE.LinearFilter;
     images.forEach((texture) => (texture.minFilter = THREE.LinearFilter));
@@ -96,7 +94,7 @@ const Content: React.FC = () => {
       <Container
         name="text-night_city"
         factor={1.2}
-        offset={textComponentOffset}
+        offset={state.textComponentOffset}
       >
         <MultilineText
           top

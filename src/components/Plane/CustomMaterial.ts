@@ -1,5 +1,5 @@
-import * as THREE from "three";
-import { ReactThreeFiber, extend } from "react-three-fiber";
+import * as THREE from "three"
+import { ReactThreeFiber, extend } from "react-three-fiber"
 
 declare global {
   namespace JSX {

@@ -4,7 +4,7 @@ import { useThree } from "react-three-fiber";
 import { offsetContext } from "../../components/Container";
 import state from "../../store";
 
-// custom hook: allows components to access container-specific data so they can react to scroll and resize
+// custom hook: allows components to access container-specific data so they can react to scroll
 const useContainer = () => {
   const { size, viewport } = useThree();
   const offset = useContext(offsetContext);

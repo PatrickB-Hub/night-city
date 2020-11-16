@@ -7,11 +7,10 @@ import "./styles.css";
 import { ScrollTopContext } from "./context";
 
 import Loader from "./components/Loader";
-import Startup from "./components/Startup";
 import Scene from "./components/Scene";
+import Startup from "./components/Startup";
 import ScrollContainer from "./components/Container/ScrollContainer";
 import Nav from "./components/Nav";
-
 import state from "./store";
 
 function App() {
