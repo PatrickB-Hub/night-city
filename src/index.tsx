@@ -11,6 +11,7 @@ import Scene from "./components/Scene";
 import Startup from "./components/Startup";
 import ScrollContainer from "./components/Container/ScrollContainer";
 import Nav from "./components/Nav";
+import Effects from "./components/Effects";
 import state from "./store";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Startup />
         </Suspense>
         <ambientLight intensity={0.8} />
+        <Effects />
       </Canvas>
       <ScrollContainer
         setScrollTop={(newScrollTop: number) => {
