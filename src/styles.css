@@ -87,6 +87,23 @@ a.nav-item.active {
   background-color: rgba(115, 115, 115, 0.8);
 }
 
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 1.2em;
+  position: fixed;
+  top: 1.5em;
+  left: 1em;
+  background-color: transparent;
+  background-image: url("./icons/mirror.png");
+  background-size: cover;
+}
+
+.bottom-left {
+  padding: 1.2rem;
+  transform: translate3d(0, -100%, 0) !important;
+}
+
 ::-webkit-scrollbar {
   width: 0.4em;
 }
@@ -111,5 +128,15 @@ a.nav-item.active {
 
   div.nav-container {
     display: block;
+  }
+
+  .bottom-left {
+    padding: 0 0 2rem 3rem;
+  }
+
+  .btn {
+    padding: 1.5em;
+    top: 2em;
+    left: 1em;
   }
 }

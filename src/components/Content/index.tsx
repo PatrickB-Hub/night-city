@@ -1,29 +1,49 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import * as THREE from "three";
+import { useFrame } from "react-three-fiber";
 import { useTexture } from "@react-three/drei";
 
 import { MultilineText } from "./Text";
 import Article from "./Article";
 import Plane from "../Plane";
+import PlaneCopies from "../Plane/PlaneCopies";
 import { Container } from "../Container";
 import Cross from "./Cross";
 import Lines from "./Lines";
 import Star from "./Star";
 
 import useContainer from "../../hooks/Container/useContainer";
+import { ScrollTopContext } from "../../context";
 import state from "../../store";
 
 const Content: React.FC = () => {
+  const [currentOffset, setCurrentOffset] = useState(0);
+  const scrollTop = useContext(ScrollTopContext);
+
   const hero = useTexture(state.hero.image);
   const images = useTexture(state.articles.map(({ image }) => image));
   const {
+    sectionHeight,
     contentMaxWidth: width,
+    viewportHeight,
+    mobile,
   } = useContainer();
+
+  const textComponentOffset = 6;
 
   useMemo(() => {
     hero.minFilter = THREE.LinearFilter;
     images.forEach((texture) => (texture.minFilter = THREE.LinearFilter));
   }, [images, hero]);
+
+  useFrame(() => {
+    const offset = Math.floor(
+      scrollTop.current / (sectionHeight * (viewportHeight / sectionHeight)) +
+        0.2
+    );
+    // skip the text component
+    setCurrentOffset(offset >= textComponentOffset ? offset - 1 : offset);
+  });
 
   return (
     <>
@@ -94,7 +114,7 @@ const Content: React.FC = () => {
       <Container
         name="text-night_city"
         factor={1.2}
-        offset={state.textComponentOffset}
+        offset={textComponentOffset}
       >
         <MultilineText
           top
@@ -118,6 +138,24 @@ const Content: React.FC = () => {
           text={"2077"}
         />
       </Container>
+
+      {currentOffset > 0 ? (
+        <PlaneCopies
+          name={`planeCopy-${currentOffset - 1}`}
+          map={images[Math.min(currentOffset - 1, images.length - 1)]}
+          scale={[15, 15, 15]}
+          layer={[11]}
+          frustumCulled={false}
+        />
+      ) : (
+        <PlaneCopies
+          name="planeCopy-0"
+          map={hero}
+          scale={[width * 4, (width / 4) * 4, 1 * 4]}
+          layer={[11]}
+          frustumCulled={false}
+        />
+      )}
     </>
   );
 };

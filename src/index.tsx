@@ -1,4 +1,4 @@
-import { useRef, Suspense } from "react";
+import { useState, useRef, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Canvas } from "react-three-fiber";
 
@@ -11,10 +11,12 @@ import Scene from "./components/Scene";
 import Startup from "./components/Startup";
 import ScrollContainer from "./components/Container/ScrollContainer";
 import Nav from "./components/Nav";
-import Effects from "./components/Effects";
+// import Effects from "./components/Effects";
+import ToggleShardsButton from "./components/ToggleShardsButton";
 import state from "./store";
 
 function App() {
+  const [showMirrorShards, setShowMirrorShards] = useState(true);
   const scrollTop = useRef(state.scrollTop);
 
   return (
@@ -22,12 +24,12 @@ function App() {
       <Canvas concurrent shadowMap camera={{ position: [0, 0, 5] }}>
         <Suspense fallback={<Loader />}>
           <ScrollTopContext.Provider value={scrollTop}>
-            <Scene />
+            <Scene showMirrorShards={showMirrorShards} />
           </ScrollTopContext.Provider>
           <Startup />
         </Suspense>
         <ambientLight intensity={0.8} />
-        <Effects />
+        {/* <Effects /> */}
       </Canvas>
       <ScrollContainer
         setScrollTop={(newScrollTop: number) => {
@@ -35,6 +37,11 @@ function App() {
         }}
       />
       <Nav />
+      <ToggleShardsButton
+        setShowMirrorShards={() =>
+          setShowMirrorShards((prevState) => !prevState)
+        }
+      />
     </>
   );
 }
