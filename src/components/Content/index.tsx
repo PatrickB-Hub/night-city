@@ -26,7 +26,6 @@ const Content: React.FC = () => {
     sectionHeight,
     contentMaxWidth: width,
     viewportHeight,
-    mobile,
   } = useContainer();
 
   const textComponentOffset = 6;
