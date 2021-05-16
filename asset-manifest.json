@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/night-city/static/css/main.fef61755.chunk.css",
+    "main.js": "/night-city/static/js/main.31695f0a.chunk.js",
+    "main.js.map": "/night-city/static/js/main.31695f0a.chunk.js.map",
+    "runtime-main.js": "/night-city/static/js/runtime-main.9edd0dd8.js",
+    "runtime-main.js.map": "/night-city/static/js/runtime-main.9edd0dd8.js.map",
+    "static/js/2.72d9ac56.chunk.js": "/night-city/static/js/2.72d9ac56.chunk.js",
+    "static/js/2.72d9ac56.chunk.js.map": "/night-city/static/js/2.72d9ac56.chunk.js.map",
+    "index.html": "/night-city/index.html",
+    "static/css/main.fef61755.chunk.css.map": "/night-city/static/css/main.fef61755.chunk.css.map",
+    "static/js/2.72d9ac56.chunk.js.LICENSE.txt": "/night-city/static/js/2.72d9ac56.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9edd0dd8.js",
+    "static/js/2.72d9ac56.chunk.js",
+    "static/css/main.fef61755.chunk.css",
+    "static/js/main.31695f0a.chunk.js"
+  ]
+}
