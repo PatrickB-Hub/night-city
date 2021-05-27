@@ -2,6 +2,8 @@
 
 Creative Cyberpunk2077 inspired landing page. Uses custom glsl shaders for reflective material and warp/distortion effects.
 
+![Night-City](http://patrickbecker.me/static/media/night-city.ddd95018.png)
+
 ## Table of Contents
 
 - [Installing](https://github.com/PatrickB-Hub/night-city/tree/main/README.md#Installing)
